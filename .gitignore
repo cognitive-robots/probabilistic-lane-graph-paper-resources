@@ -138,3 +138,5 @@ dmypy.json
 /__notes__
 # Contains data files. The PLG data is too large to be stored on GitHub
 /data/lankershim/data-structures/*
+# Contains saved output files so I don't need to keep re-running the code
+/__data__

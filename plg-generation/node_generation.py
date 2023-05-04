@@ -31,6 +31,10 @@ def node_generation(PLG, data):
     node_set = np.array([[data_x[0], data_y[0]]])
     node_set_lane_ids = [data.lane_id[0]]
     max_kmeans_iterations = 100
+    # Note that since the kmeans step is tailored to the lankershim dataset,
+    # this parameter is hard-coded here and is specific to the lankershim
+    # data.
+    lids_to_ignore_for_kmeans = [0, 101]
     
     # First we will generate an initial set of nodes using the vehicle paths
     # and the pre-defined minimum node distance.
@@ -62,7 +66,7 @@ def node_generation(PLG, data):
     # Now we perform k-means clustering to even out the distribution of nodes
     # along the lanes. First convert the node_set_lane_ids to a numpy array
     # for the np.argwhere function to work.
-    if DO_KMEANS:
+    if (DO_KMEANS) and (DATASET == "lankershim"):
         node_set_lane_ids = np.array(node_set_lane_ids)
     
         # Get the unique lane IDs
@@ -71,21 +75,22 @@ def node_generation(PLG, data):
         # Cycle through each lane ID and perform k-means clustering on the nodes
         # corresponding to that lane ID
         for lane_id in unique_lane_ids:
-            # Get nodes and original data points corresponding to this lane ID
-            node_lid_idx = np.argwhere(node_set_lane_ids == lane_id)[:,0]
-            data_lid_idx = np.argwhere(data_lid == lane_id)[:,0]
-    
-            # Get x and y coordinates for the nodes and original data points with
-            # this lane ID
-            node_lid_coords = node_set[node_lid_idx,:]
-            data_lid_coords = np.array([data_x[data_lid_idx], data_y[data_lid_idx]]).T
-    
-            # Perform k-means clustering on the nodes and original data points with
-            num_nodes_lid = len(node_lid_coords[:,0])
-            kmeans_lid = KMeans(n_clusters=num_nodes_lid, max_iter=max_kmeans_iterations, init=node_lid_coords, n_init=1).fit(data_lid_coords)
-    
-            # Update the node set with the k-means cluster centres
-            node_set[node_lid_idx,:] = kmeans_lid.cluster_centers_
+            if lane_id not in lids_to_ignore_for_kmeans:
+                # Get nodes and original data points corresponding to this lane ID
+                node_lid_idx = np.argwhere(node_set_lane_ids == lane_id)[:,0]
+                data_lid_idx = np.argwhere(data_lid == lane_id)[:,0]
+
+                # Get x and y coordinates for the nodes and original data points with
+                # this lane ID
+                node_lid_coords = node_set[node_lid_idx,:]
+                data_lid_coords = np.array([data_x[data_lid_idx], data_y[data_lid_idx]]).T
+
+                # Perform k-means clustering on the nodes and original data points with
+                num_nodes_lid = len(node_lid_coords[:,0])
+                kmeans_lid = KMeans(n_clusters=num_nodes_lid, max_iter=max_kmeans_iterations, init=node_lid_coords, n_init=1).fit(data_lid_coords)
+
+                # Update the node set with the k-means cluster centres
+                node_set[node_lid_idx,:] = kmeans_lid.cluster_centers_
     
     # Set the data into the PLG data structure
     PLG.nodes = node_set

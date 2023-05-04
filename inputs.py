@@ -245,7 +245,7 @@ PLOT_CONTINUOUS_PATH = True
 PLOT_DISCRETE_PATH = True
 PLOT_AVERAGE_DISCRETE_PATH = True
 
-PLOT_RANDOM_GENERATED_PATH = True
+PLOT_RANDOM_GENERATED_PATH = False
 PLOT_START_AND_TARGET_CLUSTERS = False
 
                                                                             
