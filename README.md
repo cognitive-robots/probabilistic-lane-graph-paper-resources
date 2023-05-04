@@ -29,7 +29,7 @@ We provide the codebase for the generation of Probabilistic Lane Graphs (PLGs) f
 # Default parameters
 In the inputs.py file we have already configured a set of parameters which produce a PLG for the lankershim dataset. We have included the relevant raw data in the data/lankershim folder and have already cleaned the data using the data_cleaner.py script. Running plg_generation.py will then generate and save the PLG data structure for the configuration in inputs.py. The PLG output from this configuration is shown below:
 
-![image](https://user-images.githubusercontent.com/102254720/236203670-b182cd82-91e3-4d56-a26a-7d937cfda36c.png)
+<img width="294" alt="image" src="https://user-images.githubusercontent.com/102254720/236274646-6055f0c3-b591-49fe-bd8f-2c060660603a.png">
 
 We've also provided an implementation of the path planning algorithm. If the PLOT_RANDOM_GENERATED_PATH flag is set to True then a path will be generated and plotted between a random entry point on the map to a random exit point. An example generated path is shown below:
 
