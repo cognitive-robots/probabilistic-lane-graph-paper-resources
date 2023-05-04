@@ -1,6 +1,8 @@
 # plg-generation
 
-We provide the codebase for the generation of Probabilistic Lane Graphs (PLGs) from spatio-temporal vehicle data. There are four Python scripts in this codebase which are relevant to the user. The relevant Python scripts are:
+We provide the codebase for the generation of Probabilistic Lane Graphs (PLGs) from spatio-temporal vehicle data. There are four Python scripts in this codebase which are relevant to the user. A dataset has been provded in this repository and is ready to use straight away. This is the NGSIM, Lankershem dataset which can be found at the following location: https://ops.fhwa.dot.gov/trafficanalysistools/ngsim.htm.
+
+The Python scripts which the user is required to manually run are:
 
 # inputs.py
 - This script contains all of the inputs the user can modify in order to alter the generation/visualisation of the PLG.
@@ -16,6 +18,7 @@ We provide the codebase for the generation of Probabilistic Lane Graphs (PLGs) f
   - Global_Y: The y position of the vehicle.
 - Optionally, a fourth file can be included which is used to generate more intuitive visualisations:
   - Lane_ID: The current lane ID of the current spatial position of the vehicle.
+- Note: the readily provided dataset has already been cleaned so for this case the user may jump straight to running the plg_generation.py script.
 
 # plg_generation.py
 - Once the data is cleaned and saved, the plg_generation.py script needs to be run to generate the PLG for this dataset.
@@ -27,7 +30,7 @@ We provide the codebase for the generation of Probabilistic Lane Graphs (PLGs) f
 - All visualisations are produced using the matplotlib library.
 
 # Default parameters and outputs
-In the inputs.py file we have already configured a set of parameters which produce a PLG for the lankershim dataset. We have included the relevant raw data in the data/lankershim folder and have already cleaned the data using the data_cleaner.py script. Running plg_generation.py will then generate and save the PLG data structure for the configuration in inputs.py. The PLG output from this configuration is shown below:
+In the inputs.py file we have already configured a set of parameters which produce a PLG for the Lankershim dataset. We have included the relevant raw data in the data/lankershim folder and have already cleaned the data using the data_cleaner.py script. Running plg_generation.py will then generate and save the PLG data structure for the configuration in inputs.py. The PLG output from this configuration is shown below:
 
 <img width="294" alt="image" src="https://user-images.githubusercontent.com/102254720/236274646-6055f0c3-b591-49fe-bd8f-2c060660603a.png">
 
