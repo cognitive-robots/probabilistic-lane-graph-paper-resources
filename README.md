@@ -31,3 +31,8 @@ In the inputs.py file we have already configured a set of parameters which produ
 
 ![image](https://user-images.githubusercontent.com/102254720/236203670-b182cd82-91e3-4d56-a26a-7d937cfda36c.png)
 
+We've also provided an implementation of the path planning algorithm. If the PLOT_RANDOM_GENERATED_PATH flag is set to True then a path will be generated and plotted between a random entry point on the map to a random exit point. An example generated path is shown below:
+
+<img width="267" alt="image" src="https://user-images.githubusercontent.com/102254720/236272942-bfa69f40-1e3a-4547-9523-f3cc1b498e05.png">
+
+
