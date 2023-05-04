@@ -25,3 +25,9 @@ We provide the codebase for the generation of Probabilistic Lane Graphs (PLGs) f
 - Once the PLG data structure is saved for a given dataset it can be visualised using plg_visualisation.py.
 - The parameters of the visualisation are contained in the inputs.py file.
 - All visualisations are produced using the matplotlib library.
+
+# Default parameters
+In the inputs.py file we have already configured a set of parameters which produce a PLG for the lankershim dataset. We have included the relevant raw data in the data/lankershim folder and have already cleaned the data using the data_cleaner.py script. Running plg_generation.py will then generate and save the PLG data structure for the configuration in inputs.py. The PLG output from this configuration is shown below:
+
+![image](https://user-images.githubusercontent.com/102254720/236203670-b182cd82-91e3-4d56-a26a-7d937cfda36c.png)
+
