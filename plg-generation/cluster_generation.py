@@ -44,11 +44,11 @@ def cluster_generation(PLG):
 
     # We now do a k-means clustering on the start and target nodes
     # Start nodes
-    kmeans_start = KMeans(n_clusters=NUM_START_CLUSTERS, init='k-means++', n_init='auto', max_iter=num_kmeans_iterations).fit(start_node_coords)
+    kmeans_start = KMeans(n_clusters=NUM_START_CLUSTERS, init='k-means++', n_init=1, max_iter=num_kmeans_iterations).fit(start_node_coords)
     start_node_cluster_labels = kmeans_start.labels_
 
     # Target nodes
-    kmeans_target = KMeans(n_clusters=NUM_TARGET_CLUSTERS, init='k-means++', n_init='auto', max_iter=num_kmeans_iterations).fit(target_node_coords)
+    kmeans_target = KMeans(n_clusters=NUM_TARGET_CLUSTERS, init='k-means++', n_init=1, max_iter=num_kmeans_iterations).fit(target_node_coords)
     target_node_cluster_labels = kmeans_target.labels_
 
     # Build the start and target cluster dictionaries
