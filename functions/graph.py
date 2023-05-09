@@ -4,10 +4,13 @@ import random
 from math import inf
 from inputs import *
 import copy
+import cmath
+import functions.general as g
 
 
 COLOUR_LOWER = 0
 COLOUR_UPPER = 1
+EMPTY_ENTRY = -1010101
 
 
 class GraphPlotInformation:
@@ -143,6 +146,79 @@ def path_generation(PLG, start_node, target_cluster):
         path.append(next_node)
 
     return path
+
+
+def node_list_to_edge_phase(PLG, node_list):
+    """Converts a list of nodes into a list of edge phases. The edge phases
+    are the phases that are traversed when moving from one node to the next.
+    If there are N nodes in the list then there will be N-1 edge phases.
+    """
+    edge_phase_list = []
+    num_nodes = len(node_list)
+
+    # Assert that there are at least two nodes in the list
+    assert num_nodes > 1
+
+    # Cycle through the nodes and get the edge phase between each pair of 
+    # nodes
+    for ii in range(num_nodes-1):
+        node_ii = node_list[ii]
+        node_jj = node_list[ii+1]
+
+        x_ii = PLG.nodes[node_ii, 0]
+        y_ii = PLG.nodes[node_ii, 1]
+        x_jj = PLG.nodes[node_jj, 0]
+        y_jj = PLG.nodes[node_jj, 1]
+
+        current_node = complex(x_ii, y_ii)
+        next_node = complex(x_jj, y_jj)
+
+        edge_phase = cmath.phase(next_node - current_node)
+        edge_phase_list.append(edge_phase)
+
+    return edge_phase_list
+
+
+def node_path_to_output_data(PLG, node_path):
+    """Converts a list of nodes into a 2D matrix of output data. The columns
+    of the matrix are as follows:
+    1. x coordinate of node
+    2. y coordinate of node
+    3. Heading angle of vehicle at node
+
+    The heading angle is calculated by taking the phase of the vector that
+    connects the current node to the next node. The heading angle is then
+    smoothed using a moving average filter.
+    """
+    # Check if final node is None, if so then remove it
+    if node_path[-1] == None:
+        node_path = node_path[:-1]
+        
+    path_length = len(node_path)
+    output_data = np.zeros((path_length, 3))
+    edge_phase_list = node_list_to_edge_phase(PLG, node_path)
+    mov_avg_win = 3
+
+    # Assert that the path length is atleast mov_avg_win
+    assert path_length >= mov_avg_win
+
+    # Get the average heading angle for this path
+    avg_edge_phase, _ = g.moving_average(edge_phase_list, n=mov_avg_win)
+
+    # Check the length of the average edge phase list against the path length
+    # and calculate the difference so we can pad the start of the
+    # avg_edge_phase list with the first element
+    avg_edge_phase_length = len(avg_edge_phase)
+    diff = path_length - avg_edge_phase_length
+    for ii in range(diff):
+        avg_edge_phase = np.insert(avg_edge_phase, 0, avg_edge_phase[0])
+
+    # Now stack the three columns of data into a single matrix
+    output_data[:,0] = PLG.nodes[node_path, 0]
+    output_data[:,1] = PLG.nodes[node_path, 1]
+    output_data[:,2] = avg_edge_phase
+
+    return output_data
 
 
 
