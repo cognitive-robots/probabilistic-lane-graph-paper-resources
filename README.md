@@ -29,6 +29,11 @@ The Python scripts which the user is required to manually run are:
 - The parameters of the visualisation are contained in the inputs.py file.
 - All visualisations are produced using the matplotlib library.
 
+# single_agent.py
+- A script to generate data for the path of a single agent in the absence of BVs.
+- This script will save a data matrix to the same location the PLG is stored.
+- The columns of the data matrix are: x coord, y coord, heading angle.
+
 # Default parameters and outputs
 In the inputs.py file we have already configured a set of parameters which produce a PLG for the Lankershim dataset. We have included the relevant raw data in the data/lankershim folder and have already cleaned the data using the data_cleaner.py script. Running plg_generation.py will then generate and save the PLG data structure for the configuration in inputs.py. The PLG output from this configuration is shown below:
 
