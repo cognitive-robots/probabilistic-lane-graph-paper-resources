@@ -140,3 +140,4 @@ dmypy.json
 /data/lankershim/data-structures/*
 # Contains saved output files so I don't need to keep re-running the code
 /__data__
+/output-data
