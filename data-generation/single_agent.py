@@ -45,7 +45,7 @@ def main():
     output_data = graph.node_path_to_output_data(PLG, path)
 
     # Save the output data to a file called "output_data_<path length>"
-    np.savetxt(PLG_SAVE_LOC+"output_data_"+str(len_of_path), output_data)
+    np.savetxt(PLG_SAVE_LOC+"output_data_"+str(len_of_path), output_data, fmt="%f")
 
 
 if __name__=="__main__":
