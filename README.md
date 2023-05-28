@@ -43,4 +43,10 @@ We've also provided an implementation of the path planning algorithm. If the PLO
 
 <img width="267" alt="image" src="https://user-images.githubusercontent.com/102254720/236272942-bfa69f40-1e3a-4547-9523-f3cc1b498e05.png">
 
+To show the extension of this code into another dataset, we also show examples of the PLG generated for roundabouts in the rounD dataset. The images are shown below:
+
+![rounD1](https://github.com/enrikmaci4/plg-generation/assets/102254720/f71ece6e-11b6-4357-bdf2-49d7ee8a539c)
+![rounD2](https://github.com/enrikmaci4/plg-generation/assets/102254720/1e42a615-2d40-48e0-954f-5e0311d176a2)
+
+
 
