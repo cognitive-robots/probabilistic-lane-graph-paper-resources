@@ -1,6 +1,8 @@
 # plg-generation
 
-We provide the codebase for the generation of Probabilistic Lane Graphs (PLGs) from spatio-temporal vehicle data. There are four Python scripts in this codebase which are relevant to the user. A dataset has been provded in this repository and is ready to use straight away. This is the NGSIM, Lankershem dataset which can be found at the following location: https://ops.fhwa.dot.gov/trafficanalysistools/ngsim.htm.
+We provide the codebase for the generation of Probabilistic Lane Graphs (PLGs) from spatio-temporal vehicle data. This GitHub repository also contains videos for some simulation data we have generated using the method described in the paper. The videos are contained in the "videos" directory.
+
+There are four Python scripts in this codebase which are relevant to the user. A dataset has been provded in this repository and is ready to use straight away. This is the NGSIM, Lankershem dataset which can be found at the following location: https://ops.fhwa.dot.gov/trafficanalysistools/ngsim.htm.
 
 The Python scripts which the user is required to manually run are:
 
@@ -45,8 +47,8 @@ We've also provided an implementation of the path planning algorithm. If the PLO
 
 To show the extension of this code into another dataset, we also show examples of the PLG generated for roundabouts in the rounD dataset. The images are shown below:
 
-![rounD1](https://github.com/enrikmaci4/plg-generation/assets/102254720/f71ece6e-11b6-4357-bdf2-49d7ee8a539c)
-![rounD2](https://github.com/enrikmaci4/plg-generation/assets/102254720/1e42a615-2d40-48e0-954f-5e0311d176a2)
+<img width="300" alt="image" src="https://github.com/enrikmaci4/plg-generation/assets/102254720/1e42a615-2d40-48e0-954f-5e0311d176a">
+<img width="300" alt="image" src="https://github.com/enrikmaci4/plg-generation/assets/102254720/f71ece6e-11b6-4357-bdf2-49d7ee8a539c">
 
 
 
