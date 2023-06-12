@@ -1,7 +1,7 @@
 # Summary
 This GitHub repository contains:
-- The code for the generation of Probabilistic Lane Graphs (PLGs) from spatio-temporal vehicle data.
 - Videos which visualise the simulation data generated.
+- The code for the generation of Probabilistic Lane Graphs (PLGs) from spatio-temporal vehicle data.
 
 # Videos of generated corner case data
 The videos are produced using a light-weight CARLA simulator in order to visualise the corner case data we have generated using the method described in the paper. The videos are contained in the _videos_ directory.
