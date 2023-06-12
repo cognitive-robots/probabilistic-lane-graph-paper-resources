@@ -1,19 +1,19 @@
 # Summary
 This GitHub repository contains:
 - The code for the generation of Probabilistic Lane Graphs (PLGs) from spatio-temporal vehicle data.
-- Videos which visualise the simulation data we generate.
+- Videos which visualise the simulation data generated.
 
 # Videos of generated corner case data
 The videos are produced using a light-weight CARLA simulator in order to visualise the corner case data we have generated using the method described in the paper. The videos are contained in the _videos_ directory.
 
-We attach an example of video _378-collision_ below:
+An example of video _378-collision_ is attached below below:
 
 https://github.com/enrikmaci4/plg-generation/assets/102254720/757ae41e-c367-46cb-9c51-3dffc665995a
 
 
 # Code for PLG generation
 
-There are four Python scripts in this codebase which are relevant to the user. A dataset has been provded in this repository and is ready to use straight away. This is the NGSIM, Lankershem dataset which can be found at the following location: https://ops.fhwa.dot.gov/trafficanalysistools/ngsim.htm.
+There are four Python scripts in this codebase which are relevant to the user. A dataset has been provided in this repository and is ready to use straight away. This is the NGSIM, Lankershem dataset which can be found at the following location: https://ops.fhwa.dot.gov/trafficanalysistools/ngsim.htm.
 
 The Python scripts which the user is required to manually run are:
 
@@ -24,7 +24,7 @@ The Python scripts which the user is required to manually run are:
 
 - # data_cleaner.py
   - This is a script which is used to "clean" the original raw data.
-  - The script takes the raw data, removes any anomalous data points and saves the data to a Python data structure we've defined.
+  - The script takes the raw data, removes any anomalous data points and saves the data to a defined Python data structure.
   - The raw data which is read by this file must be provided in the following format: three text files where each line contains a data point. The three files are:
     - Vehicle_ID: The vehicle ID corresponding to each data point.
     - Global_X: The x position of the vehicle.
@@ -35,7 +35,7 @@ The Python scripts which the user is required to manually run are:
 
 - # plg_generation.py
   - Once the data is cleaned and saved, the plg_generation.py script needs to be run to generate the PLG for this dataset.
-  - This script saves the PLG in a data structure which we have defined in the "classes" folder.
+  - This script saves the PLG in a data structure which defined in the "classes" folder.
 
 - # plg_visualisation.py
   - Once the PLG data structure is saved for a given dataset it can be visualised using plg_visualisation.py.
@@ -48,9 +48,9 @@ The Python scripts which the user is required to manually run are:
   - The columns of the data matrix are: x coord, y coord, heading angle.
 
 - # Default parameters and outputs
-  - In the inputs.py file we have already configured a set of parameters which produce a PLG for the Lankershim dataset. We have included the relevant raw data in the data/lankershim folder and have already cleaned the data using the data_cleaner.py script. Running plg_generation.py will then generate and save the PLG data structure for the configuration in inputs.py. The PLG output from this configuration is shown below:
+  - A set of parameters which produce a PLG for the Lankershim dataset have already been defined in inputs.py. The relevant raw data is included in the data/lankershim folder. The included data has already been cleaned using the data using the data_cleaner.py script. Running plg_generation.py will then generate and save the PLG data structure for the configuration in inputs.py. The PLG output from this configuration is shown below:
     - <img width="300" alt="image" src="https://user-images.githubusercontent.com/102254720/236274646-6055f0c3-b591-49fe-bd8f-2c060660603a.png">
-  - We've also provided an implementation of the path planning algorithm. If the PLOT_RANDOM_GENERATED_PATH flag is set to True then a path will be generated and plotted between a random entry point on the map to a random exit point. An example generated path is shown below:
+  - An implementation of the path planning algorithm has also been provided. If the PLOT_RANDOM_GENERATED_PATH flag is set to True then a path will be generated and plotted between a random entry point on the map to a random exit point. An example generated path is shown below:
     - <img width="300" alt="image" src="https://user-images.githubusercontent.com/102254720/236272942-bfa69f40-1e3a-4547-9523-f3cc1b498e05.png">
 
 - # Roundabout examples
