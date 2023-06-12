@@ -56,6 +56,6 @@ The Python scripts which the user is required to manually run are:
 - # Roundabout examples
   - To show the extension of this code into another dataset, we also show examples of the PLG generated for roundabouts in the rounD dataset. The images are shown below:
     - <img width="350" alt="image" src="https://github.com/enrikmaci4/plg-generation/assets/102254720/f71ece6e-11b6-4357-bdf2-49d7ee8a539c">
-    - <img width="350" alt="image" src="https://github.com/enrikmaci4/plg-generation/assets/102254720/2461c8b7-0130-4897-a045-fe9de6adb8bc">
+    - <img width="350" alt="image" src="https://github.com/enrikmaci4/plg-generation/assets/102254720/822bd802-c98b-468c-8caf-cf315e75a68e">
 
 
