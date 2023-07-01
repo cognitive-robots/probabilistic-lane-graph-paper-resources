@@ -52,6 +52,14 @@ The Python scripts which the user is required to manually run are:
     - <img width="300" alt="image" src="https://user-images.githubusercontent.com/102254720/236274646-6055f0c3-b591-49fe-bd8f-2c060660603a.png">
   - An implementation of the path planning algorithm has also been provided. If the PLOT_RANDOM_GENERATED_PATH flag is set to True, then a path will be generated and plotted between a random entry point on the map to a random exit point. An example generated path is shown below:
     - <img width="300" alt="image" src="https://user-images.githubusercontent.com/102254720/236272942-bfa69f40-1e3a-4547-9523-f3cc1b498e05.png">
+  - In the paper the possibility of generating "a tree of possible paths" that the vehicle can take. Below is the result of a fast multiple path generator algorithm:
+    - Red = the path generated using Algorithm 2 in the paper.
+    - Yellow = a single path highlighted within the tree of paths.
+    - Orange = the entire tree of possible paths generatted.
+    - The starting point is the sky blue cross.
+    - The target destination is the exit on the upper right (where the red path terminated)
+    - <img width="300" alt="image" src="https://github.com/enrikmaci4/plg-generation/assets/102254720/79c96982-6de1-4c4e-a156-d5e903af460d">
+ 
 
 - # Roundabout examples
   - To show the extension of this code into another dataset, we also show examples of the PLG generated for roundabouts in the rounD dataset. The images are shown below:
