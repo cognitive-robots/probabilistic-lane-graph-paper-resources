@@ -45,18 +45,18 @@ def adj_mat_generation(PLG):
             # So an edge goes from the row to the column
             PLG.adjmat[current_node, next_node] += 1
 
-        # Remove super long edges from the PLG
-        for ii in range(PLG.num_nodes-1):
-            for jj in range(ii+1, PLG.num_nodes):
-                if PLG.adjmat[ii,jj] > 0:
-                    # Coords of 1st node
-                    n1 = complex(PLG.nodes[ii,0], PLG.nodes[ii,1])
-                    # Coords of 2nd node
-                    n2 = complex(PLG.nodes[jj,0], PLG.nodes[jj,1])
-                    # Distance of this edge
-                    n1n2_length = abs(n1 - n2)
-                    if n1n2_length > max_edge_len:
-                        PLG.adjmat[ii,jj] = 0
+    # Remove super long edges from the PLG
+    for ii in range(PLG.num_nodes-1):
+        for jj in range(ii+1, PLG.num_nodes):
+            if PLG.adjmat[ii,jj] > 0:
+                # Coords of 1st node
+                n1 = complex(PLG.nodes[ii,0], PLG.nodes[ii,1])
+                # Coords of 2nd node
+                n2 = complex(PLG.nodes[jj,0], PLG.nodes[jj,1])
+                # Distance of this edge
+                n1n2_length = abs(n1 - n2)
+                if n1n2_length > max_edge_len:
+                    PLG.adjmat[ii,jj] = 0
 
     # Convert the adjacency matrix to a probability matrix by cylcing through
     # each row and dividing each entry by the sum of the row
