@@ -3,6 +3,11 @@ This GitHub repository contains:
 - Videos which visualise the simulation data generated.
 - The code for the generation of Probabilistic Lane Graphs (PLGs) from spatio-temporal vehicle data.
 
+Run the scripts in the following order:
+- data_cleaner.py - "Cleans" the dataset and saves it.
+- plg_generation.py - Generates a PLG object and saves it.
+- plg_visualisation.py - Plots the generates graph using matplotlib. The plot parameters can be modified in inputs.py.
+
 # Videos of generated corner case data
 The videos are produced using a light-weight CARLA simulator in order to visualise the corner case data generated using the method described in the paper. The videos are contained in the _videos_ directory.
 
@@ -41,11 +46,6 @@ The Python scripts which the user is required to manually run are:
   - Once the PLG data structure is saved for a given dataset it can be visualised using plg_visualisation.py.
   - The parameters of the visualisation are contained in the inputs.py file.
   - All visualisations are produced using the matplotlib library.
-
-- # single_agent.py
-  - A script to generate data for the path of a single agent in the absence of BVs.
-  - This script will save a data matrix to the same location the PLG is stored.
-  - The columns of the data matrix are: x coord, y coord, heading angle.
 
 - # Default parameters and outputs
   - A set of parameters which produce a PLG for the Lankershim dataset have already been defined in inputs.py. The relevant raw data is included in the data/lankershim folder. The included data has already been cleaned using the data_cleaner.py script. Running plg_generation.py will then generate and save the PLG data structure for the configuration in inputs.py. The PLG output from this configuration is shown below:
