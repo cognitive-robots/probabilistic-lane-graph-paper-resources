@@ -14,6 +14,8 @@ from inputs import *
 
 SAVE_LOC = "data/"+DATASET+"/cleaned/"
 
+DATA_SAVE_NAME = "clean_data_v2"
+
 
 ###############################################################################
 # Clean the dataset. If there are any two data points d_k and d_{k+1} where   #
@@ -21,6 +23,9 @@ SAVE_LOC = "data/"+DATASET+"/cleaned/"
 # we will remove d_{k+1}. There are some anomalous data points like this in   #
 # the datasets. These anomalous data points results in unrealistically larg   #
 # edges in the PLG so we remove them using this data cleaning script.         #
+#                                                                             #
+# We also rename the vehicle IDs such that one vehicle ID only appears a      #
+# single time in a contiguous block of data.                                  #
 #                                                                             #
 # This function will take the original dataset loaded via the load_data class #
 # and will return a cleaned dataset.                                          #
@@ -66,8 +71,8 @@ def clean_data(orignal_dataset):
             # Cycle through the data for this path
             for ii in range(1, path_length):
                 # Current x,y values
-                x_current = x[ii]
-                y_current = y[ii]
+                x_current = x[ii,0]
+                y_current = y[ii,0]
                 # Previous x,y values
                 x_prev = x_clean[-1]
                 y_prev = y_clean[-1]
@@ -114,7 +119,7 @@ def main():
     print(date_time.get_current_time(), "Finished cleaning data")
 
     # Save data
-    g.save_pickled_data(SAVE_LOC+"clean_data", cleaned_dataset)
+    g.save_pickled_data(SAVE_LOC+DATA_SAVE_NAME, cleaned_dataset)
     print(date_time.get_current_time(), "Saved clean data")
 
 

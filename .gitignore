@@ -131,16 +131,28 @@ dmypy.json
 # Ignore .idea
 .idea
 
-# Foldes to ignore
-# Contains original (messy) code this project is based on
+# Folders to ignore
+# Contains original code this project is based on
 /__legacy__
+/__data__
 # Contains notes and other non-code files
 /__notes__
-# Contains data files. The PLG data is too large to be stored on GitHub
+# Contains data files. Don't track any data changes on GH anymore. However,
+# keep the paths of the folders so the user doesn't get a "folder doesn't
+# exist" error when trying to generate files.
+# - lankershim
+/data/lankershim/cleaned/*
 /data/lankershim/data-structures/*
-# Contains saved output files so I don't need to keep re-running the code
-/__data__
-/output-data
+#   - !!! This line has been commented so that this dataset is stored on GH
+#     for the user to have a readily available dataset.
+#/data/lankershim/original/*
+# - newdataset
+#   - A set of empty folders have already been created if the user would like
+#     to test the code with their own dataset.
+/data/newdataset/cleaned/*
+/data/newdataset/data-structures/*
+/data/newdataset/original/*
+# Outputs directory
+/output
 # Ignore the contents of the "videos" folder but not the folder itself
 /videos/*
-!videos/.gitkeep

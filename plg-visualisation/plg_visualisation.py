@@ -20,6 +20,8 @@ PLG_SAVE_LOC = "data/"+DATASET+"/data-structures/"
 COLOUR_LOWER = 0
 COLOUR_UPPER = 1
 
+DATA_SAVE_NAME = "clean_data_v2"
+
 
 class PLGVisualisationParams:
     def __init__(self, data) -> None:
@@ -66,7 +68,7 @@ def main():
     print(date_time.get_current_time(), "Program started")
 
     # Load the cleaned data
-    data = g.load_pickled_data(DATA_LOC+"clean_data")
+    data = g.load_pickled_data(DATA_LOC+DATA_SAVE_NAME)
     print(date_time.get_current_time(), "Loaded clean data")
 
     # Create a PLG object
@@ -146,6 +148,16 @@ def main():
         z_ord = 11
         plt.scatter(PLG.start_cluster_centres[:,0], PLG.start_cluster_centres[:,1], color="blue", marker="x", s=s_size, zorder=z_ord, label="Entry points")
         plt.scatter(PLG.target_cluster_centres[:,0], PLG.target_cluster_centres[:,1], color="magenta", marker="x", s=s_size, zorder=z_ord, label="Exit points")
+        
+        # Annotate each of the clusters
+        dx = 0.5
+        dy = 0.5
+        fontsize = 10
+        for ii in range(len(PLG.start_cluster_centres[:,0])):
+            plt.text(PLG.start_cluster_centres[ii,0] + dx, PLG.start_cluster_centres[ii,1] + dy, str(ii), color="blue", fontsize=fontsize, fontweight="bold", zorder=25)
+        for ii in range(len(PLG.target_cluster_centres[:,0])):
+            plt.text(PLG.target_cluster_centres[ii,0] + dx, PLG.target_cluster_centres[ii,1] + dy, str(ii), color="magenta", fontsize=fontsize, fontweight="bold", zorder=25)
+        
         plt.legend()
 
 
@@ -156,9 +168,15 @@ def main():
         start_cluster = np.random.choice(list(PLG.start_clusters.keys()))
         start_node = np.random.choice(PLG.start_clusters[start_cluster])
         target_cluster = np.random.choice(list(PLG.target_clusters.keys()))
-        
+        print(date_time.get_current_time(), "Start cluster =", start_cluster)
+        print(date_time.get_current_time(), "Target cluster =", target_cluster)
+
         # Now generate the path
         path = graph.path_generation(PLG, start_node, target_cluster)
+
+        # Check the final element of "path"
+        if not path[-1]:
+            path.pop(-1)
 
         # Plot the path
         plt.plot(PLG.nodes[path,0], PLG.nodes[path,1], color="orange", linestyle="-", linewidth=1.5, zorder=12, label="Randomly generated path")

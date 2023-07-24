@@ -96,7 +96,7 @@ UNIT = "feet"
 #                                   nodes in the PLG.                         #
 #                                                                             #
 ###############################################################################
-MIN_DIST_BETWEEN_NODES = 3
+MIN_DIST_BETWEEN_NODES = 2.5
 NUM_START_CLUSTERS = 10
 NUM_TARGET_CLUSTERS = 10
 DO_KMEANS = True
@@ -188,12 +188,13 @@ DO_KMEANS = True
 # Path params:                                                                #
 #          PLOT_RANDOM_VEHICLE_PATH                                           #
 #                               - Boolean value. Set to True if you would     #
-#                                 like to plot a random vehicle path. Or, set #
-#                                 to an integer value. If this is an integer  #
-#                                 value, then the value specifies the ID of   #
-#                                 the vehicle whose path you would like to    #
-#                                 plot. If this is set to False, then no      #
-#                                 vehicle path will be plotted.               #
+#                                 like to plot a random vehicle path from the #
+#                                 dataset. Or, set to an integer value. If    #
+#                                 this is an integer value, then the value    #
+#                                 specifies the ID of the vehicle whose path  #
+#                                 you would like to plot. If this is set to   #
+#                                 False, then no vehicle path will be         #
+#                                 plotted.                                    #
 #          PLOT_CONTINUOUS_PATH - Boolean value. Set to True if you would     #
 #                                 like to plot the continuous path of the     #
 #                                 vehicle. "Continuous" in this case refers   #

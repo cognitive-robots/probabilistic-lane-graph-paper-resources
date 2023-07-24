@@ -22,6 +22,9 @@ from travel_dict_generation import travel_dict_generation
 DATA_LOC = "data/"+DATASET+"/cleaned/"
 PLG_SAVE_LOC = "data/"+DATASET+"/data-structures/"
 
+PLG_SAVE_NAME = "PLG"
+DATA_SAVE_NAME = "clean_data_v2"
+
 
 def main():
     # Time the script
@@ -29,7 +32,7 @@ def main():
     print(date_time.get_current_time(), "Program started")
 
     # Load the cleaned data
-    data = g.load_pickled_data(DATA_LOC+"clean_data")
+    data = g.load_pickled_data(DATA_LOC+DATA_SAVE_NAME)
     print(date_time.get_current_time(), "Loaded clean data")
 
     # Create a PLG object
@@ -38,35 +41,27 @@ def main():
     # Generate node set
     rc = node_generation(PLG, data)
     print(date_time.get_current_time(), "Generated nodes")
-    g.save_pickled_data(PLG_SAVE_LOC+"PLG", PLG)
-    print(date_time.get_current_time(), "Generated nodes. Saved...")
 
     # Generate discrete vehicle paths
     rc = get_discrete_vehicle_paths(data=data, PLG=PLG)
     print(date_time.get_current_time(), "Discretised vehicle paths")
-    g.save_pickled_data(PLG_SAVE_LOC+"PLG", PLG)
-    g.save_pickled_data(DATA_LOC+"clean_data", data)
-    print(date_time.get_current_time(), "Discretised vehicle paths. Saved...")
 
     # Create the adjacency matrix
     rc = adj_mat_generation(PLG)
     print(date_time.get_current_time(), "Adjacency matrix generated")
-    g.save_pickled_data(PLG_SAVE_LOC+"PLG", PLG)
-    print(date_time.get_current_time(), "Adjacency matrix generated. Saved...")
 
     # Get the start and target node clusters
     rc = cluster_generation(PLG)
     print(date_time.get_current_time(), "Start/target node clusters generated")
-    g.save_pickled_data(PLG_SAVE_LOC+"PLG", PLG)
-    print(date_time.get_current_time(), "Start/target node clusters generated. Saved...")
 
     # Generate the travel dictionary
     rc = travel_dict_generation(PLG)
     print(date_time.get_current_time(), "Travel dictionary generated")
-    g.save_pickled_data(PLG_SAVE_LOC+"PLG", PLG)
-    print(date_time.get_current_time(), "Travel dictionary generated. Saved...")
 
-    # Print time take
+    # Save and print time taken
+    g.save_pickled_data(PLG_SAVE_LOC+PLG_SAVE_NAME, PLG)
+    g.save_pickled_data(DATA_LOC+DATA_SAVE_NAME, data)
+    print(date_time.get_current_time(), "Saved PLG and updated clean_data with node inforamtion")
     print(f"PLG generation time taken = {round(time.time() - t_start, 3)} s")
 
 
