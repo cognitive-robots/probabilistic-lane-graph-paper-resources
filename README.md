@@ -1,12 +1,16 @@
 # Summary
 This GitHub repository contains:
-- Videos which visualise the simulation data generated.
+- CARLA: Videos which visualise the simulation data generated.
+- PYTHON: Gifs produced entirely in matplotlib showing entirely simulated traffic data.
 - The code for the generation of Probabilistic Lane Graphs (PLGs) from spatio-temporal vehicle data.
+- The code for traffic simulation generations.
 
 Run the scripts in the following order:
 - data_cleaner.py - "Cleans" the dataset and saves it.
 - plg_generation.py - Generates a PLG object and saves it.
 - plg_visualisation.py - Plots the generates graph using matplotlib. The plot parameters can be modified in inputs.py.
+- test_simulation_*.py - Generates simulated traffic data and stores it as Pyhon pickle.
+- animation.py - Turns the output from test_simulation_1.py into a gif to visualise the generated scenarion.
 
 # Videos of generated corner case data
 The videos are produced using a light-weight CARLA simulator in order to visualise the corner case data generated using the method described in the paper. The videos are contained in the _videos_ directory.
@@ -15,6 +19,11 @@ An example, video _378-collision_, is attached below:
 
 https://github.com/enrikmaci4/plg-generation/assets/102254720/757ae41e-c367-46cb-9c51-3dffc665995a
 
+# Gifs in Python showing the simulations within the graph framework
+
+An example simulatin of a traffic scenario:
+
+<insert here>
 
 # Code for PLG generation
 
