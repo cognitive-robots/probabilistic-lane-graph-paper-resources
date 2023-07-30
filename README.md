@@ -23,7 +23,7 @@ https://github.com/enrikmaci4/plg-generation/assets/102254720/757ae41e-c367-46cb
 
 An example simulatin of a traffic scenario:
 
-<insert here>
+![anim_3](https://github.com/enrikmaci4/plg-generation/assets/102254720/1e77f89c-63d7-4705-a5d2-7b12005ca93b)
 
 # Code for PLG generation
 
