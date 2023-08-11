@@ -22,9 +22,20 @@ https://github.com/enrikmaci4/plg-generation/assets/102254720/757ae41e-c367-46cb
 
 # Gifs in Python showing the simulations within the graph framework
 
-An example simulatin of a traffic scenario:
+## An example simulatin of a traffic scenario:
 
 ![anim_3](https://github.com/enrikmaci4/plg-generation/assets/102254720/1e77f89c-63d7-4705-a5d2-7b12005ca93b)
+
+## Moving average smoothing of raw data
+Here we show the effect of the moving average smoothing to convert the original, sharp paths within the PLG into smoother and more realistic trajectories.
+
+### Raw simulation output
+
+![anim_15_ncc](https://github.com/enrikmaci4/plg-generation/assets/102254720/fcf7b35a-acf4-4fc1-9d0b-1cef4b03582d)
+
+### Smoothed output using a moving average filter
+
+![anim](https://github.com/enrikmaci4/plg-generation/assets/102254720/b01e3b44-37d5-49b7-969b-c6023ee9132e)
 
 # Code for PLG generation
 
