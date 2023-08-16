@@ -22,7 +22,7 @@ https://github.com/enrikmaci4/plg-generation/assets/102254720/757ae41e-c367-46cb
 
 # Gifs in Python showing the simulations within the graph framework
 
-## An example simulatin of a traffic scenario:
+## An example simulation of a traffic scenario:
 
 ![anim_3](https://github.com/enrikmaci4/plg-generation/assets/102254720/1e77f89c-63d7-4705-a5d2-7b12005ca93b)
 
